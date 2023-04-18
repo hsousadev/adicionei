@@ -1,0 +1,51 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "first_name": "Henrique",
+      "last_name": "Sousa",
+      "first_email": "henriquesousa.dev@gmail.com",
+      "second_email": "dehenriquesousa.dev@gmail.com",
+      "first_phone": "+55 12 991668819",
+      "second_phone": "+55 12 123456789",
+      "third_phone": "",
+      "first_cep": "12221750",
+      "first_address": "Rua Mário Campos",
+      "first_neighbourhood": "Vila tesouro",
+      "first_city": "São José dos Campos",
+      "first_uf": "SP",
+      "first_number": "51",
+      "second_cep": "12320750",
+      "second_address": "Rua Duarte da Costa",
+      "second_neighbourhood": "Jardim Paulistano",
+      "second_city": "Jacareí",
+      "second_uf": "SP",
+      "second_number": "40",
+      "notes": "Há mais de 2 anos desenvolvendo e programando interfaces com JavaScript, React JS e Typescript.",
+      "fixed": false
+    },
+    {
+      "first_name": "Maria",
+      "last_name": "Ferreira",
+      "first_email": "mariaferreira.mkt@gmail.com",
+      "second_email": "ferreira.mkt@gmail.com",
+      "first_phone": "+55 12 999998888",
+      "second_phone": "",
+      "third_phone": "",
+      "first_cep": "",
+      "first_address": "Rua Mário Campos",
+      "first_neighbourhood": "Vila Tesouro",
+      "first_city": "São José dos Campos",
+      "first_uf": "SP",
+      "first_number": "51",
+      "second_cep": "",
+      "second_address": "",
+      "second_neighbourhood": "",
+      "second_city": "",
+      "second_uf": "",
+      "second_number": "",
+      "notes": "Consultora de marketing da Egali",
+      "id": 2
+    }
+  ]
+}

@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   width: 100%;
 `;
@@ -11,18 +12,9 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
 
   max-width: var(--Max-content-width);
   width: 100%;
-
-  padding: 32px 0 64px 0;
-
-  .theme-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-  }
 `;
