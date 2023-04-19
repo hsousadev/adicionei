@@ -67,6 +67,7 @@ const Home = ({ contacts }: ContactListProps) => {
                     email={contact.first_email}
                     phone={contact.first_phone}
                     onClick={() => router.push(`/contact/${contact.id}`)}
+                    img_url={contact.img_url}
                   />
                 )
             )}
@@ -88,6 +89,7 @@ const Home = ({ contacts }: ContactListProps) => {
                   email={contact.first_email}
                   phone={contact.first_phone}
                   onClick={() => router.push(`/contact/${contact.id}`)}
+                  img_url={contact.img_url}
                 />
               )
           )
@@ -102,6 +104,7 @@ const Home = ({ contacts }: ContactListProps) => {
                   email={contact.first_email}
                   phone={contact.first_phone}
                   onClick={() => router.push(`/contact/${contact.id}`)}
+                  img_url={contact.img_url}
                 />
               )
           )

@@ -30,6 +30,21 @@ export const Container = styled.div`
       justify-content: center;
       gap: 8px;
     }
+
+    h4 {
+      text-align: center;
+      margin-top: 16px;
+
+      strong {
+        transition: all 0.4s ease-in-out;
+        cursor: pointer;
+        margin-right: 8px;
+      }
+
+      strong:hover {
+        opacity: 50%;
+      }
+    }
   }
 
   .line {

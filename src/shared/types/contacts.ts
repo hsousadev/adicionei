@@ -21,6 +21,7 @@ export interface ContactProps {
   second_number: number;
   notes: string;
   fixed: boolean;
+  img_url: string;
 }
 
 export interface ContactListProps {

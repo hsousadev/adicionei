@@ -7,11 +7,12 @@ interface DefaultProps extends HTMLAttributes<HTMLButtonElement> {
   icon: string;
   text: string;
   onClick?: () => void;
+  type?: "submit";
 }
 
-const DefaultButton = ({ icon, text, onClick }: DefaultProps) => {
+const DefaultButton = ({ icon, text, onClick, type }: DefaultProps) => {
   return (
-    <Container onClick={onClick}>
+    <Container type={type} onClick={onClick}>
       <Image src={icon} alt="" />
       <h4>{text}</h4>
     </Container>

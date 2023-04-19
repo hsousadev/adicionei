@@ -9,6 +9,7 @@ interface ContactProps {
   last_name: string;
   email: string;
   phone: string;
+  img_url: string;
   onClick: () => void;
 }
 
@@ -17,6 +18,7 @@ const Contact = ({
   last_name,
   email,
   phone,
+  img_url,
   onClick,
 }: ContactProps) => {
   const { isDarkTheme } = useContext(GlobalContext);
@@ -24,7 +26,21 @@ const Contact = ({
   return (
     <Container onClick={onClick} isDarkTheme={isDarkTheme}>
       <div className="name">
-        <InitialPicture name={first_name} width={48} height={48} />
+        {img_url ? (
+          <img
+            src={img_url}
+            alt=""
+            width={48}
+            height={48}
+            style={{
+              borderRadius: "100%",
+              objectFit: "cover",
+              border: `2px solid var(--TropicalIndigo)`,
+            }}
+          />
+        ) : (
+          <InitialPicture name={first_name} width={48} height={48} />
+        )}
         <h4>
           {first_name} {last_name}
         </h4>
