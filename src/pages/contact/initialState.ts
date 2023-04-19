@@ -21,4 +21,5 @@ export const ContactInitialState = {
   second_number: 0,
   notes: "",
   fixed: false,
+  img_url: "",
 };

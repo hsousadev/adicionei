@@ -1,7 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Container } from "./styles";
 
 import InitialPicture from "@/shared/components/InitialPicture";
+import useWindowSize from "@/shared/utils/useWindowSize";
+
 import { GlobalContext } from "@/pages/_app.page";
 
 interface ContactProps {
@@ -22,6 +24,9 @@ const Contact = ({
   onClick,
 }: ContactProps) => {
   const { isDarkTheme } = useContext(GlobalContext);
+
+  const windowSize = useWindowSize();
+  const isMobile = windowSize.windowWidth <= 690;
 
   return (
     <Container onClick={onClick} isDarkTheme={isDarkTheme}>
@@ -46,8 +51,12 @@ const Contact = ({
         </h4>
       </div>
 
-      <h4 className="email">{email}</h4>
-      <h4 className="phone">{phone}</h4>
+      {!isMobile && (
+        <>
+          <h4 className="email">{email}</h4>
+          <h4 className="phone">{phone}</h4>
+        </>
+      )}
     </Container>
   );
 };

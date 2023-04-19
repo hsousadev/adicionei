@@ -2,6 +2,7 @@ export interface ContactProps {
   id: number;
   first_name: string;
   last_name: string;
+  full_name: string;
   first_email: string;
   second_email: string;
   first_phone: string;

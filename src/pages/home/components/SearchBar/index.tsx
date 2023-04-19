@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useContext } from "react";
+import { useContext } from "react";
 import Image from "next/image";
 
 import { GlobalContext } from "@/pages/_app.page";
@@ -7,12 +7,8 @@ import magnifyingGlass from "@/shared/assets/icons/magnifyingGlass.svg";
 
 import { Container } from "./styles";
 
-interface SearchProps {
-  setSearch: Dispatch<SetStateAction<string>>;
-}
-
-const Search = ({ setSearch }: SearchProps) => {
-  const { isDarkTheme } = useContext(GlobalContext);
+const Search = () => {
+  const { search, setSearch, isDarkTheme } = useContext(GlobalContext);
 
   return (
     <>
@@ -20,10 +16,10 @@ const Search = ({ setSearch }: SearchProps) => {
         <input
           id="search"
           type="search"
-          placeholder="Henrique Sousa..."
+          placeholder="Cristiano Ronaldo"
           onChange={(e) => setSearch(e.target.value)}
-          // onKeyDown={handleSearch}
           maxLength={30}
+          defaultValue={search}
         />
         <button id="doSearch">
           <Image src={magnifyingGlass} alt="" />

@@ -1,7 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
+import { useContext } from "react";
 import Image from "next/image";
-
-import { ContactProps } from "@/shared/types/contacts";
 
 import ShortButton from "@/shared/components/ShortButton";
 
@@ -12,13 +10,11 @@ import mapPinLine from "@/shared/assets/icons/mapPinLine.svg";
 import notepad from "@/shared/assets/icons/notepad.svg";
 
 import { Container } from "./styles";
+import { ContactContext } from "../../[contact_slug].page";
 
-interface DetailsProps {
-  contact: ContactProps;
-  setEditMode: Dispatch<SetStateAction<boolean>>;
-}
+const Details = () => {
+  const { contactRequested, setEditMode } = useContext(ContactContext);
 
-const Details = ({ contact, setEditMode }: DetailsProps) => {
   return (
     <Container>
       <div className="header">
@@ -33,33 +29,43 @@ const Details = ({ contact, setEditMode }: DetailsProps) => {
         <div className="detail">
           <Image src={phone} width={24} height={24} alt="" />
           <div className="info">
-            <h4>{contact.first_phone}</h4>
-            {contact.second_phone && <h4>{contact.second_phone}</h4>}
-            {contact.third_phone && <h4>{contact.third_phone}</h4>}
+            <h4>{contactRequested.first_phone}</h4>
+            {contactRequested.second_phone && (
+              <h4>{contactRequested.second_phone}</h4>
+            )}
+            {contactRequested.third_phone && (
+              <h4>{contactRequested.third_phone}</h4>
+            )}
           </div>
         </div>
         <div className="detail">
           <Image src={envelopeOpen} width={24} height={24} alt="" />
           <div className="info">
-            <h4>{contact.first_email}</h4>
-            {contact.second_email && <h4>{contact.second_email}</h4>}
+            <h4>{contactRequested.first_email}</h4>
+            {contactRequested.second_email && (
+              <h4>{contactRequested.second_email}</h4>
+            )}
           </div>
         </div>
         <div className="detail">
           <Image src={mapPinLine} width={24} height={24} alt="" />
           <div className="info">
-            {contact.first_address && (
+            {contactRequested.first_address && (
               <h4>
-                {contact.first_address}, {contact.first_number}{" "}
-                {contact.first_neighbourhood} | {contact.first_city}{" "}
-                {contact.first_uf} {contact.first_cep}
+                {contactRequested.first_address},{" "}
+                {contactRequested.first_number}{" "}
+                {contactRequested.first_neighbourhood} |{" "}
+                {contactRequested.first_city} {contactRequested.first_uf}{" "}
+                {contactRequested.first_cep}
               </h4>
             )}
-            {contact.second_address && (
+            {contactRequested.second_address && (
               <h4>
-                {contact.second_address}, {contact.second_number}{" "}
-                {contact.second_neighbourhood} | {contact.second_city}{" "}
-                {contact.second_uf} {contact.second_cep}
+                {contactRequested.second_address},{" "}
+                {contactRequested.second_number}{" "}
+                {contactRequested.second_neighbourhood} |{" "}
+                {contactRequested.second_city} {contactRequested.second_uf}{" "}
+                {contactRequested.second_cep}
               </h4>
             )}
           </div>
@@ -67,7 +73,7 @@ const Details = ({ contact, setEditMode }: DetailsProps) => {
         <div className="detail">
           <Image src={notepad} width={24} height={24} alt="" />
           <div className="info">
-            {contact.notes && <h4>{contact.notes}</h4>}
+            {contactRequested.notes && <h4>{contactRequested.notes}</h4>}
           </div>
         </div>
       </div>

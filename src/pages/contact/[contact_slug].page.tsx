@@ -1,6 +1,5 @@
+import { useState, createContext, Dispatch, SetStateAction } from "react";
 import { GetServerSidePropsContext } from "next";
-
-import { useState } from "react";
 
 import { ContactProps } from "@/shared/types/contacts";
 
@@ -9,6 +8,25 @@ import Details from "./components/Details";
 import Form from "./components/Form";
 
 import { Container, Content } from "./styles";
+import { ContactInitialState } from "./initialState";
+
+interface ContactContextProps {
+  contactRequested: ContactProps;
+  setContactRequested: Dispatch<SetStateAction<ContactProps>>;
+  editMode: boolean;
+  setEditMode: Dispatch<SetStateAction<boolean>>;
+}
+
+interface InitialContactProps {
+  contact: ContactProps;
+}
+
+export const ContactContext = createContext<ContactContextProps>({
+  contactRequested: ContactInitialState,
+  setContactRequested: () => {},
+  editMode: false,
+  setEditMode: () => {},
+});
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { query } = context;
@@ -25,37 +43,27 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 }
 
-interface InitialContactProps {
-  contact: ContactProps;
-}
-
 const Contact = ({ contact }: InitialContactProps) => {
   const contactInital = contact;
 
   const [contactRequested, setContactRequested] = useState(contactInital);
   const [editMode, setEditMode] = useState(false);
 
-  // const [contactUpdated, setContactUpdated] = useState(false);
-
   return (
-    <Container>
-      <Content>
-        {contactRequested && (
-          <>
-            <Header
-              contact={contactRequested}
-              setContactRequested={setContactRequested}
-              editMode={editMode}
-            />
-            {!editMode ? (
-              <Details contact={contactRequested} setEditMode={setEditMode} />
-            ) : (
-              <Form contact={contactRequested} setEditMode={setEditMode} />
-            )}
-          </>
-        )}
-      </Content>
-    </Container>
+    <ContactContext.Provider
+      value={{ contactRequested, setContactRequested, editMode, setEditMode }}
+    >
+      <Container>
+        <Content>
+          {contactRequested && (
+            <>
+              <Header />
+              {!editMode ? <Details /> : <Form />}
+            </>
+          )}
+        </Content>
+      </Container>
+    </ContactContext.Provider>
   );
 };
 

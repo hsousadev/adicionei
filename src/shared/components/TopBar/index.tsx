@@ -21,7 +21,6 @@ const TopBar = () => {
   const router = useRouter();
 
   const isHome = router.pathname === "/";
-
   const { isDarkTheme, setIsDarkTheme } = useContext(GlobalContext);
 
   function handleDarkTheme() {

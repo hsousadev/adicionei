@@ -39,15 +39,15 @@ export const Content = styled.div`
     gap: 16px;
 
     h4.name {
-      width: 484px;
+      width: 40%;
     }
 
     h4.email {
-      width: 315px;
+      width: 40%;
     }
 
     h4.phone {
-      width: 385px;
+      width: 20%;
     }
   }
 
@@ -64,5 +64,12 @@ export const Content = styled.div`
 
   .contacts {
     margin-top: 32px;
+  }
+
+  @media (max-width: 690px) {
+    .search-and-add {
+      flex-direction: column;
+      gap: 32px;
+    }
   }
 `;

@@ -40,4 +40,18 @@ export const Container = styled.div`
       gap: 8px;
     }
   }
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media (max-width: 425px) {
+    padding: 16px;
+
+    .informations {
+      .detail {
+        flex-direction: column;
+      }
+    }
+  }
 `;

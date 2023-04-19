@@ -7,8 +7,10 @@ export const Container = styled.div`
 
   width: 100%;
   height: 640px;
+  margin-top: 16px;
 
   overflow-y: scroll;
+  overflow-x: hidden;
 `;
 export const Content = styled.div`
   display: flex;
@@ -128,6 +130,42 @@ export const Content = styled.div`
       min-width: 680px;
 
       appearance: none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+
+    form {
+      width: 100%;
+      padding-right: 8px;
+
+      h4 {
+        font-size: 12px;
+      }
+
+      .type,
+      label,
+      input,
+      textarea {
+        font-size: 12px;
+        width: 100%;
+      }
+
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .large {
+        width: 100%;
+      }
+      .medium {
+        width: 50%;
+      }
+      .short {
+        width: 25%;
+      }
     }
   }
 `;

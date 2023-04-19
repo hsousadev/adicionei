@@ -34,14 +34,28 @@ export const Container = styled.div<ContainerProps>`
     justify-content: flex-start;
 
     gap: 8px;
-    width: 484px;
+    width: 40%;
+  }
+
+  h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   h4.email {
-    width: 315px;
+    width: 40%;
   }
 
   h4.phone {
-    width: 385px;
+    width: 20%;
+  }
+
+  @media (max-width: 690px) {
+    .name {
+      width: 100%;
+    }
   }
 `;

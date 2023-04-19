@@ -25,4 +25,9 @@ export const Content = styled.div`
 
     gap: 8px;
   }
+
+  @media (max-width: 690px) {
+    flex-direction: column;
+    gap: 32px;
+  }
 `;

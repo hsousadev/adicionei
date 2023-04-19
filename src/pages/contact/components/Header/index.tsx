@@ -1,7 +1,6 @@
 import Image from "next/image";
 
-import { Dispatch, SetStateAction, useState } from "react";
-import { ContactProps } from "@/shared/types/contacts";
+import { useContext, useState } from "react";
 
 import InitialPicture from "@/shared/components/InitialPicture";
 
@@ -10,24 +9,20 @@ import ShortButton from "@/shared/components/ShortButton";
 import purplePushPinOutline from "@/shared/assets/icons/purplePushPinOutline.svg";
 import pushPinFillWhite from "@/shared/assets/icons/pushPinFillWhite.svg";
 import trashSimple from "@/shared/assets/icons/trashSimple.svg";
-import floppyDisk from "@/shared/assets/icons/floppyDisk.svg";
 import loading from "@/shared/assets/icons/loading.svg";
 
 import { Container } from "./styles";
 import { useRouter } from "next/router";
-import DefaultButton from "@/shared/components/DefaultButton";
+import { ContactContext } from "../../[contact_slug].page";
 
-interface HeaderProps {
-  contact: ContactProps;
-  setContactRequested: Dispatch<SetStateAction<ContactProps>>;
-  editMode: boolean;
-}
-
-const Header = ({ contact, setContactRequested, editMode }: HeaderProps) => {
+const Header = () => {
   const router = useRouter();
   const { contact_slug } = router.query;
 
-  const [contactFixed, setContactFixed] = useState(contact?.fixed);
+  const { contactRequested, setContactRequested, editMode } =
+    useContext(ContactContext);
+
+  const [contactFixed, setContactFixed] = useState(contactRequested?.fixed);
 
   const [showUpdateMessage, setShowUpdateMessage] = useState(false);
   const [showDeleteMessage, setShowDeleteMessage] = useState(false);
@@ -52,10 +47,10 @@ const Header = ({ contact, setContactRequested, editMode }: HeaderProps) => {
   function handleFixingContact() {
     setContactRequested((prevContactData) => ({
       ...prevContactData,
-      fixed: !contact?.fixed,
+      fixed: !contactRequested?.fixed,
     }));
 
-    setContactFixed(!contact?.fixed);
+    setContactFixed(!contactRequested?.fixed);
     handleSetContactFixed();
   }
 
@@ -65,8 +60,8 @@ const Header = ({ contact, setContactRequested, editMode }: HeaderProps) => {
       {
         method: "PUT",
         body: JSON.stringify({
-          ...contact,
-          fixed: !contact?.fixed,
+          ...contactRequested,
+          fixed: !contactRequested?.fixed,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -99,9 +94,9 @@ const Header = ({ contact, setContactRequested, editMode }: HeaderProps) => {
 
   return (
     <Container>
-      {contact.img_url ? (
+      {contactRequested.img_url ? (
         <img
-          src={contact.img_url}
+          src={contactRequested.img_url}
           alt=""
           width={162}
           height={162}
@@ -112,13 +107,17 @@ const Header = ({ contact, setContactRequested, editMode }: HeaderProps) => {
           }}
         />
       ) : (
-        <InitialPicture name={contact.first_name} width={162} height={162} />
+        <InitialPicture
+          name={contactRequested.first_name}
+          width={162}
+          height={162}
+        />
       )}
       <h2>
-        {contact.first_name} {contact.last_name}
+        {contactRequested.first_name} {contactRequested.last_name}
       </h2>
 
-      {!editMode && (
+      {!editMode && contact_slug && (
         <div className="buttons">
           <div className="fixation-and-delete">
             {contactFixed ? (

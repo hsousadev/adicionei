@@ -46,6 +46,18 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
 
   }
 
+  @media(max-width: 1320px) {
+    body {
+      padding: 0 32px; 
+    }
+  }
+
+  @media(max-width: 425px) {
+    body {
+      padding: 0 16px;
+    }
+  }
+
   mark {
     background-color: transparent;
   }
@@ -109,6 +121,29 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     border: none;
     font-family: "Poppins";
   }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(123, 74, 226, 0.1);
+    border-radius: 16px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--TropicalIndigo);
+    border-radius: 16px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(123, 74, 226, 0.3);
+  }
+
 
   @media(max-width: 720px) {
     h1 {

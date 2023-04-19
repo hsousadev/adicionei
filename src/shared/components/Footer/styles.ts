@@ -68,15 +68,10 @@ export const Content = styled.div`
     }
   }
 
-  @media (max-width: 1366px) {
-    padding: 64px;
-  }
-
   @media (max-width: 768px) {
     .logo-and-return-top {
       flex-direction: column-reverse;
       gap: 32px;
-      padding: 32px;
     }
 
     .copyrights {
