@@ -29,7 +29,7 @@ cd adicionei
 
 4. Instale as dependências
 ```
-npm install
+npm install && npm install -g json-server
 ```
 
 5. Rode o servidor em um terminal na porta 3004
