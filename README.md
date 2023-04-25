@@ -1,7 +1,7 @@
 # Adicionei
 App web de gerenciamento de contatos. 
 
-![adicionei-cover](https://user-images.githubusercontent.com/54003876/233363181-52c966fe-458b-4c26-9260-e2d951044243.png)
+![adicionei-cover](https://user-images.githubusercontent.com/54003876/234316093-88e43f19-7a72-4300-b24f-924f1f299457.png)
 
 
 ## 🎨 Figma: 
